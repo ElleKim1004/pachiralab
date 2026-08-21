@@ -63,7 +63,12 @@
   .menu-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--dark);}
 
   /* Hero */
-  .hero{background:var(--green-dark);color:#fff;padding:64px 0 76px;text-align:center;}
+  .hero{
+    background:
+      linear-gradient(180deg, rgba(4,62,20,0.90) 0%, rgba(4,62,20,0.86) 55%, rgba(4,62,20,0.94) 100%),
+      url('https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:#fff;padding:64px 0 76px;text-align:center;
+  }
   .hero-logo{max-width:220px;margin:0 auto 8px;}
   .hero-tagline{
     font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.02em;margin:0 0 34px;font-style:italic;
@@ -113,6 +118,10 @@
   .pain-num{font-size:13px;font-weight:800;color:var(--green);margin-bottom:14px;}
   .pain-card h3{font-size:18px;font-weight:700;margin:0 0 10px;letter-spacing:-0.01em;}
   .pain-card p{font-size:14.5px;color:var(--mid);margin:0;}
+  .section-photo{
+    width:100%;height:280px;object-fit:cover;border-radius:var(--radius);
+    margin:0 0 32px;display:block;
+  }
 
   /* Core service band */
   .core-band{background:var(--green-dark);color:#fff;}
@@ -121,7 +130,10 @@
   .core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
   .core-card{
     background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:var(--radius);
-    padding:26px 22px;
+    padding:26px 22px;overflow:hidden;
+  }
+  .core-thumb{
+    width:calc(100% + 44px);margin:-26px -22px 18px;height:130px;object-fit:cover;display:block;
   }
   .core-num{
     width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,0.12);
@@ -135,7 +147,10 @@
   .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
   .svc-card{
     background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-    padding:30px 28px;scroll-margin-top:90px;
+    padding:30px 28px;scroll-margin-top:90px;overflow:hidden;
+  }
+  .svc-thumb{
+    width:calc(100% + 56px);margin:-30px -28px 20px;height:150px;object-fit:cover;display:block;
   }
   .svc-num{
     width:34px;height:34px;border-radius:10px;background:var(--green-pale);border:1px solid var(--border);
@@ -212,6 +227,9 @@
   .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
   footer .brand{font-size:14px;}
   footer .fine{font-size:12.5px;color:var(--mid);}
+  .footer-blog{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--dark);font-size:13px;font-weight:600;}
+  .footer-blog svg{width:22px;height:22px;border-radius:6px;flex-shrink:0;}
+  .footer-blog:hover{color:var(--green);}
 
   @media (max-width:860px){
     nav.links{display:none;}
@@ -264,6 +282,7 @@
         <div class="kicker">이런 고민, 있으셨을 겁니다</div>
         <h2 class="section-title">혼자 준비하기엔 챙길 게 많습니다</h2>
       </div>
+      <img class="section-photo" src="https://images.unsplash.com/photo-1758611972036-cd42a3175aa6?auto=format&fit=crop&w=1600&q=80" alt="서류 준비로 지친 실무자">
       <div class="pain-grid">
         <div class="pain-card">
           <div class="pain-num">01</div>
@@ -294,21 +313,25 @@
       </div>
       <div class="core-grid">
         <div class="core-card">
+          <img class="core-thumb" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="오픈이노베이션 협업 미팅">
           <div class="core-num">1</div>
           <h3>오픈이노베이션</h3>
           <p>대기업 오픈이노베이션 프로그램 지원서 작성부터 협업 제안까지 준비합니다.</p>
         </div>
         <div class="core-card">
+          <img class="core-thumb" src="https://images.unsplash.com/photo-1560439514-0fc9d2cd5e1b?auto=format&fit=crop&w=800&q=80" alt="액셀러레이터 데모데이 발표 현장">
           <div class="core-num">2</div>
           <h3>액셀러레이터</h3>
           <p>액셀러레이터·보육 프로그램 지원 시기와 조건에 맞춰 서류를 준비합니다.</p>
         </div>
         <div class="core-card">
+          <img class="core-thumb" src="https://images.unsplash.com/photo-1686771416282-3888ddaf249b?auto=format&fit=crop&w=800&q=80" alt="투자유치 협상 미팅">
           <div class="core-num">3</div>
           <h3>사내벤처 투자유치</h3>
           <p>사내벤처·CVC 등 투자유치 대상 발굴부터 제안까지 지원합니다.</p>
         </div>
         <div class="core-card">
+          <img class="core-thumb" src="https://images.unsplash.com/photo-1762968274962-20c12e6e8ecd?auto=format&fit=crop&w=800&q=80" alt="IR 및 데모데이 발표">
           <div class="core-num">4</div>
           <h3>IR·데모데이</h3>
           <p>IR 자료, 데모데이 발표 준비와 회사소개서 작성을 함께합니다.</p>
@@ -327,6 +350,7 @@
       </div>
       <div class="svc-grid">
         <div class="svc-card" id="services-2">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1768399808130-abac2a8442e0?auto=format&fit=crop&w=900&q=80" alt="인증·인정 관련 기관 건물">
           <div class="svc-num">02</div>
           <h3>인증·인정 컨설팅</h3>
           <p class="svc-tag">ISO부터 벤처확인까지, 취득과 유지관리를 함께</p>
@@ -336,6 +360,7 @@
           </div>
         </div>
         <div class="svc-card" id="services-3">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1758611972036-cd42a3175aa6?auto=format&fit=crop&w=900&q=80" alt="정부지원 바우처 서류 준비">
           <div class="svc-num">03</div>
           <h3>정부지원 바우처 컨설팅</h3>
           <p class="svc-tag">받을 수 있는 바우처, 놓치지 않게</p>
@@ -345,6 +370,7 @@
           </div>
         </div>
         <div class="svc-card" id="services-4">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1762968274962-20c12e6e8ecd?auto=format&fit=crop&w=900&q=80" alt="사업화자금 IR 발표">
           <div class="svc-num">04</div>
           <h3>사업화자금 컨설팅</h3>
           <p class="svc-tag">사업계획서부터 정부 R&amp;D 과제까지</p>
@@ -354,6 +380,7 @@
           </div>
         </div>
         <div class="svc-card" id="services-5">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80" alt="인사·현장혁신 협업 미팅">
           <div class="svc-num">05</div>
           <h3>인사·현장혁신 컨설팅</h3>
           <p class="svc-tag">근로계약서부터 스마트공장까지</p>
@@ -363,6 +390,7 @@
           </div>
         </div>
         <div class="svc-card" id="services-6">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1686771416282-3888ddaf249b?auto=format&fit=crop&w=900&q=80" alt="경영·해외진출 협상 미팅">
           <div class="svc-num">06</div>
           <h3>경영·해외진출 컨설팅</h3>
           <p class="svc-tag">정관부터 해외 판로까지</p>
@@ -372,6 +400,7 @@
           </div>
         </div>
         <div class="svc-card" id="services-7">
+          <img class="svc-thumb" src="https://images.unsplash.com/photo-1758691736836-0413b066787a?auto=format&fit=crop&w=900&q=80" alt="브랜드·마케팅 기획 워크숍">
           <div class="svc-num">07</div>
           <h3>브랜드·홍보·마케팅 컨설팅</h3>
           <p class="svc-tag">브랜드부터 광고 운영까지</p>
@@ -490,19 +519,19 @@
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-row">
-          <label for="company">회사명</label>
-          <input type="text" id="company" name="company" required>
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email" required>
         </div>
         <div class="form-row">
           <label for="phone">연락처</label>
           <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
         </div>
         <div class="form-row">
-          <label for="message">문의 내용</label>
+          <label for="message">문의사항</label>
           <textarea id="message" name="message" placeholder="궁금하신 서비스 분야나 상황을 간단히 적어주세요."></textarea>
         </div>
         <button type="submit" class="form-submit">지금 무료 상담 신청하기</button>
-        <p class="form-note">제출 시 입력하신 연락처로 안내드립니다. 별도 동의 없이 마케팅에 활용하지 않습니다.</p>
+        <p class="form-note">제출 시 입력하신 이메일로 안내드립니다. 별도 동의 없이 마케팅에 활용하지 않습니다.</p>
       </form>
     </div>
   </section>
@@ -511,6 +540,13 @@
 <footer>
   <div class="wrap footer-inner">
     <div class="brand"><span class="dot"></span>PACHIRALAB 파키라랩</div>
+    <a class="footer-blog" href="https://blog.naver.com/pachiralab" target="_blank" rel="noopener" aria-label="파키라랩 네이버 블로그">
+      <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="22" height="22" rx="5" fill="#03C75A"/>
+        <text x="11" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">N</text>
+      </svg>
+      네이버 블로그
+    </a>
     <div class="fine">© 2026 파키라랩(PachiraLab). "Bringing Value, Driving Success."</div>
   </div>
 </footer>
@@ -542,12 +578,12 @@
   document.getElementById('leadForm').addEventListener('submit', function(e){
     e.preventDefault();
     var name = document.getElementById('name').value;
-    var company = document.getElementById('company').value;
+    var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
     var message = document.getElementById('message').value;
-    var subject = encodeURIComponent('[파키라랩 상담신청] ' + company + ' / ' + name);
-    var body = encodeURIComponent('이름: ' + name + '\n회사명: ' + company + '\n연락처: ' + phone + '\n문의내용: ' + message);
-    window.location.href = 'mailto:hello@pachiralab.com?subject=' + subject + '&body=' + body;
+    var subject = encodeURIComponent('[파키라랩 상담신청] ' + name);
+    var body = encodeURIComponent('이름: ' + name + '\n이메일: ' + email + '\n연락처: ' + phone + '\n문의사항: ' + message);
+    window.location.href = 'mailto:ceo@pachira.kr?subject=' + subject + '&body=' + body;
   });
 </script>
 
