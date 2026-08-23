@@ -13,10 +13,38 @@ layout: base
 
 <main>
   <div class="wrap">
+    {%- if page.show_series -%}
+    {%- for s in site.series_order -%}
+    {%- assign sp = site.posts | where: "series", s | sort: "episode" -%}
+    <section class="series-block">
+      <div class="series-block-head">
+        <h2>{{ site.series_names[s] }}</h2>
+        <span class="series-chip">{{ sp.size }} / {{ site.series_total[s] }}화 공개</span>
+      </div>
+      <p class="series-block-desc">{{ site.series_desc[s] }}</p>
+      {%- if sp.size > 0 %}
+      <ol class="series-list">
+        {%- for post in sp %}
+        <li>
+          <span class="ep">{{ post.episode }}화</span>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          {%- if post.summary %}<span class="series-sum">{{ post.summary }}</span>{% endif %}
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- else %}
+      <p class="series-soon">첫 편을 준비하고 있습니다.</p>
+      {%- endif %}
+    </section>
+    {%- endfor -%}
+    <h2 class="section-divider">그 밖의 글</h2>
+    {%- endif -%}
+
     {%- assign posts = site.categories[page.category] -%}
     {%- if posts and posts.size > 0 %}
     <ul class="post-list">
       {%- for post in posts %}
+      {%- if page.show_series and post.series %}{% continue %}{% endif %}
       <li class="post-item">
         <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <div class="post-meta">

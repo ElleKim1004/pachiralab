@@ -20,7 +20,11 @@ layout: base
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %-m월 %-d일" }}</time>
       </div>
 
+      {% include series-nav.html position="top" %}
+
       {{ content }}
+
+      {% include series-nav.html position="bottom" %}
 
       <div class="article-foot">
         <a class="back-link" href="{{ '/' | append: cat | append: '/' | relative_url }}">← {{ site.category_names[cat] | default: '목록' }} 목록으로</a>
