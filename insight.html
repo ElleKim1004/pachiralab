@@ -1,0 +1,69 @@
+---
+layout: base
+title: "인사이트"
+description: "오픈이노베이션·액셀러레이터·투자유치·인증·경영까지, 파키라랩이 실제 현장에서 정리한 준비 가이드와 사례입니다."
+permalink: /insight/
+---
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">INSIGHT</p>
+    <h1>준비하는 사람 입장에서 정리했습니다</h1>
+    <p>공고문만 읽어서는 알기 어려운 것들 — 무엇을 먼저 챙겨야 하는지, 어디서 자주 막히는지, 심사에서 실제로 무엇을 보는지. 상담하며 반복해서 받은 질문을 분야별로 정리합니다.</p>
+  </div>
+</div>
+
+{% include catbar.html current='insight' %}
+
+<main>
+  <div class="wrap">
+
+    <h2 class="sec-title">분야별로 보기</h2>
+    <div class="hub-grid">
+      {%- for c in site.insight_categories %}
+      {%- assign posts = site.categories[c] %}
+      <a class="hub-card" href="{{ '/' | append: c | append: '/' | relative_url }}">
+        <h3>{{ site.category_names[c] }}</h3>
+        <p>
+          {%- case c -%}
+          {%- when 'open-innovation' -%}대기업 협업 프로그램 지원서와 협업 제안
+          {%- when 'accelerator' -%}액셀러레이터·TIPS 등 보육 프로그램 준비
+          {%- when 'investment-ir' -%}사내벤처 투자유치, IR 자료와 데모데이
+          {%- when 'certification-support' -%}ISO·벤처확인·바우처 등 인증과 정부지원
+          {%- when 'management-brand' -%}정관·ESG·해외진출과 브랜드·마케팅
+          {%- endcase -%}
+        </p>
+        <span class="count">{% if posts %}글 {{ posts.size }}개{% else %}준비 중{% endif %} →</span>
+      </a>
+      {%- endfor %}
+    </div>
+
+    <h2 class="sec-title">최근 글</h2>
+    {%- assign recent = '' | split: '' -%}
+    {%- for c in site.insight_categories -%}
+      {%- assign cp = site.categories[c] -%}
+      {%- if cp -%}{%- assign recent = recent | concat: cp -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign recent = recent | sort: 'date' | reverse -%}
+
+    {%- if recent.size > 0 %}
+    <ul class="post-list">
+      {%- for post in recent limit: 12 %}
+      <li class="post-item">
+        <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <div class="post-meta">
+          <span class="tag">{{ site.category_names[post.categories.first] }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        </div>
+        {%- if post.summary %}<p class="post-excerpt">{{ post.summary }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <div class="empty">
+      <strong>첫 글을 준비하고 있습니다</strong>
+      상담에서 자주 나온 질문부터 차례로 정리해 올릴 예정입니다.
+    </div>
+    {%- endif %}
+
+  </div>
+</main>

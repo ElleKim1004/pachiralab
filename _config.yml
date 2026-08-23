@@ -1,0 +1,54 @@
+title: "파키라랩 PACHIRALAB"
+tagline: "Bringing Value, Driving Success."
+description: "오픈이노베이션, 액셀러레이터, 사내벤처 투자유치, IR부터 인증·정부지원사업까지 — 파키라랩이 단계별로 함께합니다."
+url: "https://pachira.kr"
+baseurl: ""
+lang: ko
+
+author:
+  name: 파키라랩
+
+logo: /assets/pachiralab-logo.png
+
+# 글 주소: /카테고리/글제목/  (예: /open-innovation/how-to-write/)
+permalink: /:categories/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: /feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# 카테고리 한글 이름표 — 새 게시판을 추가할 땐 여기와 폴더를 같이 만들면 됩니다.
+category_names:
+  open-innovation: "오픈이노베이션"
+  accelerator: "액셀러레이터"
+  investment-ir: "투자유치·IR"
+  certification-support: "인증·정부지원사업"
+  management-brand: "경영·브랜드"
+  notice: "공지사항"
+  news: "뉴스"
+
+# 인사이트 허브에 묶이는 카테고리(공지·뉴스 제외)
+insight_categories:
+  - open-innovation
+  - accelerator
+  - investment-ir
+  - certification-support
+  - management-brand
+
+exclude:
+  - README.md
+  - POSTING-GUIDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
