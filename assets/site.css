@@ -211,7 +211,7 @@ footer .fine{font-size:12.5px;color:var(--mid);}
 .series-list .ep{font-size:12px;font-weight:700;color:var(--green,#0E6B32);}
 .series-list a{color:var(--dark,#141413);text-decoration:none;font-weight:600;font-size:15.5px;line-height:1.5;}
 .series-list a:hover{color:var(--green,#0E6B32);}
-.series-sum{display:block;margin-top:5px;font-size:13.5px;color:var(--mid,#726F68);line-height:1.6;}
+.series-sum{display:block;grid-column:2;margin-top:5px;font-size:13.5px;color:var(--mid,#726F68);line-height:1.6;}
 .section-divider{font-size:18px;color:var(--green-dark,#043E14);margin:8px 0 16px;padding-top:20px;border-top:1px solid var(--border,#E1DFD5);}
 
 /* ===== 본문 이미지 + 캡션 (네이버 블로그식) ===== */
@@ -232,3 +232,8 @@ footer .fine{font-size:12.5px;color:var(--mid);}
   .series-nav{grid-template-columns:1fr;}
   .series-nav .next{text-align:left;}
 }
+
+/* 본문 링크 색상이 CTA 버튼 글자색을 덮어쓰던 문제 수정 */
+.article .cta-inline{color:#fff;}
+.article .back-link{color:var(--mid,#726F68);}
+.article .back-link:hover{color:var(--green,#0E6B32);}
