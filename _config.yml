@@ -46,6 +46,23 @@ insight_categories:
   - certification-support
   - management-brand
 
+# 연재 시리즈 설정 — 새 시리즈를 만들 땐 여기에 4줄만 추가하면 됩니다.
+series_order:
+  - column
+  - basics
+
+series_names:
+  column: "오픈이노베이션 시사 칼럼"
+  basics: "오픈이노베이션 기초편"
+
+series_desc:
+  column: "지금 벌어지고 있는 오픈이노베이션 정책·사례를 한 편씩 짚어봅니다."
+  basics: "오픈이노베이션이 무엇인지부터 차근차근 짚어보는 입문 연재입니다."
+
+series_total:
+  column: 10
+  basics: 30
+
 exclude:
   - README.md
   - POSTING-GUIDE.md
