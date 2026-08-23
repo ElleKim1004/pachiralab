@@ -274,6 +274,7 @@
   }
   .form-submit:hover{background:var(--green-hover);}
   .form-note{font-size:12.5px;color:var(--mid);text-align:center;margin-top:14px;}
+  .form-card iframe{display:block;width:100%;border:0;min-height:420px;}
 
   /* Footer */
   footer{padding:40px 0;border-top:1px solid var(--border);}
@@ -647,26 +648,17 @@
         <h2 class="section-title">성장 단계에 맞는 다음 스텝부터 확인해보세요</h2>
         <p class="section-desc">아래 정보를 남겨주시면 확인 후 연락드립니다.</p>
       </div>
-      <form class="form-card" id="leadForm">
-        <div class="form-row">
-          <label for="name">이름</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-row">
-          <label for="email">이메일</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-row">
-          <label for="phone">연락처</label>
-          <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000">
-        </div>
-        <div class="form-row">
-          <label for="message">문의사항</label>
-          <textarea id="message" name="message" placeholder="궁금하신 서비스 분야나 상황을 간단히 적어주세요."></textarea>
-        </div>
-        <button type="submit" class="form-submit">지금 무료 상담 신청하기</button>
-        <p class="form-note">제출 시 입력하신 이메일로 안내드립니다. 별도 동의 없이 마케팅에 활용하지 않습니다.</p>
-      </form>
+      <div class="form-card">
+        <iframe
+          data-tally-src="https://tally.so/embed/dWGgQq?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+          loading="lazy" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0"
+          title="파키라랩 무료 상담 신청"></iframe>
+        <noscript>
+          <p class="form-note">신청 폼을 불러오려면 자바스크립트가 필요합니다.
+            <a href="https://tally.so/r/dWGgQq" target="_blank" rel="noopener">여기를 눌러 새 창에서 신청</a>하실 수 있습니다.</p>
+        </noscript>
+        <p class="form-note">입력하신 연락처로 확인 후 연락드립니다. 별도 동의 없이 마케팅에 활용하지 않습니다.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -708,17 +700,22 @@
     });
   });
 
-  // Lead form: mailto fallback (no backend configured)
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var message = document.getElementById('message').value;
-    var subject = encodeURIComponent('[파키라랩 상담신청] ' + name);
-    var body = encodeURIComponent('이름: ' + name + '\n이메일: ' + email + '\n연락처: ' + phone + '\n문의사항: ' + message);
-    window.location.href = 'mailto:ceo@pachira.kr?subject=' + subject + '&body=' + body;
-  });
+  // Tally 폼 인라인 임베드 (페이지를 벗어나지 않고 제출 → 완료 메시지가 그 자리에 표시됨)
+  (function(){
+    var d = document, src = 'https://tally.so/widgets/embed.js';
+    var load = function(){
+      if (typeof Tally !== 'undefined') { Tally.loadEmbeds(); return; }
+      d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(el){
+        el.src = el.dataset.tallySrc;
+      });
+    };
+    if (typeof Tally !== 'undefined') { load(); }
+    else if (!d.querySelector('script[src="' + src + '"]')) {
+      var s = d.createElement('script');
+      s.src = src; s.onload = load; s.onerror = load;
+      d.body.appendChild(s);
+    }
+  })();
 </script>
 
 </body>
