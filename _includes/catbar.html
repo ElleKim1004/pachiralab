@@ -1,0 +1,11 @@
+{%- assign here = include.current -%}
+<div class="cat-bar">
+  <div class="cat-bar-inner">
+    <a href="{{ '/insight/' | relative_url }}"{% if here == 'insight' %} class="on"{% endif %}>전체</a>
+    {%- for c in site.insight_categories %}
+    <a href="{{ '/' | append: c | append: '/' | relative_url }}"{% if here == c %} class="on"{% endif %}>{{ site.category_names[c] }}</a>
+    {%- endfor %}
+    <a href="{{ '/notice/' | relative_url }}"{% if here == 'notice' %} class="on"{% endif %}>공지사항</a>
+    <a href="{{ '/news/' | relative_url }}"{% if here == 'news' %} class="on"{% endif %}>뉴스</a>
+  </div>
+</div>
