@@ -1,0 +1,46 @@
+{%- if page.series -%}
+{%- assign sposts = site.posts | where: "series", page.series | sort: "episode" -%}
+{%- assign total = site.series_total[page.series] | default: sposts.size -%}
+{%- if include.position == "top" -%}
+<div class="series-box">
+  <div class="series-line">
+    <span class="series-badge">연재</span>
+    <a class="series-name" href="{{ '/open-innovation/' | relative_url }}">{{ site.series_names[page.series] }}</a>
+  </div>
+  <div class="series-progress">
+    <strong>{{ page.episode }}화</strong> / 전체 {{ total }}화
+    <span class="series-bar"><i style="width:{{ page.episode | times: 100 | divided_by: total }}%"></i></span>
+  </div>
+</div>
+{%- endif -%}
+{%- if include.position == "bottom" -%}
+{%- assign idx = 0 -%}
+{%- for p in sposts -%}{%- if p.url == page.url -%}{%- assign idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- assign pi = idx | minus: 1 -%}
+{%- assign ni = idx | plus: 1 -%}
+<nav class="series-nav">
+  {%- if idx > 0 -%}
+  {%- assign prev = sposts[pi] -%}
+  <a class="sn prev" href="{{ prev.url | relative_url }}">
+    <span class="sn-label">← 이전 {{ prev.episode }}화</span>
+    <span class="sn-title">{{ prev.title }}</span>
+  </a>
+  {%- else -%}<span class="sn empty"></span>{%- endif -%}
+  {%- if ni < sposts.size -%}
+  {%- assign next = sposts[ni] -%}
+  <a class="sn next" href="{{ next.url | relative_url }}">
+    <span class="sn-label">다음 {{ next.episode }}화 →</span>
+    <span class="sn-title">{{ next.title }}</span>
+  </a>
+  {%- else -%}<span class="sn empty"></span>{%- endif -%}
+</nav>
+<details class="series-toc">
+  <summary>{{ site.series_names[page.series] }} 전체 목차 ({{ sposts.size }}편 공개)</summary>
+  <ol>
+    {%- for p in sposts -%}
+    <li{% if p.url == page.url %} class="on"{% endif %}><span class="ep">{{ p.episode }}화</span><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+    {%- endfor -%}
+  </ol>
+</details>
+{%- endif -%}
+{%- endif -%}
