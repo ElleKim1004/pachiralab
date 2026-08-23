@@ -1,0 +1,37 @@
+---
+layout: base
+---
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">{% if page.category == 'notice' or page.category == 'news' %}PACHIRALAB{% else %}INSIGHT{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.intro %}<p>{{ page.intro }}</p>{% endif %}
+  </div>
+</div>
+
+{% include catbar.html current=page.category %}
+
+<main>
+  <div class="wrap">
+    {%- assign posts = site.categories[page.category] -%}
+    {%- if posts and posts.size > 0 %}
+    <ul class="post-list">
+      {%- for post in posts %}
+      <li class="post-item">
+        <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <div class="post-meta">
+          <span class="tag">{{ site.category_names[page.category] }}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        </div>
+        {%- if post.summary %}<p class="post-excerpt">{{ post.summary }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <div class="empty">
+      <strong>준비 중입니다</strong>
+      {{ page.title }} 게시판의 첫 글을 준비하고 있습니다.
+    </div>
+    {%- endif %}
+  </div>
+</main>

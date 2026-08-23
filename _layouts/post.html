@@ -1,0 +1,31 @@
+---
+layout: base
+---
+{%- assign cat = page.categories | first -%}
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">{{ site.category_names[cat] | default: 'PACHIRALAB' }}</p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.summary %}<p>{{ page.summary }}</p>{% endif %}
+  </div>
+</div>
+
+{% include catbar.html current=cat %}
+
+<main>
+  <div class="wrap">
+    <article class="article">
+      <div class="post-meta" style="margin-bottom:22px;">
+        <span class="tag">{{ site.category_names[cat] | default: '글' }}</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %-m월 %-d일" }}</time>
+      </div>
+
+      {{ content }}
+
+      <div class="article-foot">
+        <a class="back-link" href="{{ '/' | append: cat | append: '/' | relative_url }}">← {{ site.category_names[cat] | default: '목록' }} 목록으로</a>
+        <a class="cta-inline" href="{{ '/#contact' | relative_url }}">무료 상담 신청하기</a>
+      </div>
+    </article>
+  </div>
+</main>
