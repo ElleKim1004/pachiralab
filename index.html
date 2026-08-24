@@ -277,13 +277,21 @@
   .form-card iframe{display:block;width:100%;border:0;min-height:560px;background:#fff;}
 
   /* Footer */
-  footer{padding:40px 0;border-top:1px solid var(--border);}
-  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-  footer .brand{font-size:14px;}
-  footer .fine{font-size:12.5px;color:var(--mid);}
-  .footer-blog{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--dark);font-size:13px;font-weight:600;}
-  .footer-blog svg{width:22px;height:22px;border-radius:6px;flex-shrink:0;}
-  .footer-blog:hover{color:var(--green);}
+  footer{padding:44px 0 30px;border-top:1px solid var(--border);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:22px;}
+  .footer-brand{display:flex;flex-direction:column;gap:9px;}
+  .footer-logo{height:24px;width:auto;display:block;}
+  .footer-tag{margin:0;font-size:12.5px;color:var(--mid);letter-spacing:0.01em;}
+  .footer-social{display:flex;align-items:center;gap:18px;}
+  .sns{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--dark);font-size:13px;font-weight:600;transition:color .15s;}
+  .sns svg{width:22px;height:22px;border-radius:6px;flex-shrink:0;display:block;}
+  .sns:hover{color:var(--green);}
+  .footer-bottom{margin-top:26px;padding-top:18px;border-top:1px solid var(--border);}
+  footer .fine{margin:0;font-size:12.5px;color:var(--mid);}
+  @media (max-width:640px){
+    .footer-inner{flex-direction:column;align-items:flex-start;gap:20px;}
+    .footer-social{gap:14px;flex-wrap:wrap;}
+  }
 
   @media (max-width:860px){
     nav.links{display:none;}
@@ -665,16 +673,43 @@
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div class="brand"><span class="dot"></span>PACHIRALAB 파키라랩</div>
-    <a class="footer-blog" href="https://blog.naver.com/pachiralab" target="_blank" rel="noopener" aria-label="파키라랩 네이버 블로그">
-      <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="22" height="22" rx="5" fill="#03C75A"/>
-        <text x="11" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">N</text>
-      </svg>
-      네이버 블로그
-    </a>
-    <div class="fine">© 2026 파키라랩(PachiraLab). "Bringing Value, Driving Success."</div>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="/assets/pachiralab-logo.png" alt="파키라랩 PACHIRALAB">
+        <p class="footer-tag">Bringing Value, Driving Success.</p>
+      </div>
+      <div class="footer-social">
+        <a class="sns" href="https://blog.naver.com/pachiralab" target="_blank" rel="noopener" aria-label="파키라랩 네이버 블로그">
+          <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="22" rx="5" fill="#03C75A"/>
+            <path d="M8.1 6.6h2.6l2.5 3.9V6.6h2.7v8.8h-2.6l-2.5-3.9v3.9H8.1z" fill="#fff"/>
+          </svg>
+          <span>네이버 블로그</span>
+        </a>
+        <a class="sns" href="https://www.instagram.com/valuecreator.elle" target="_blank" rel="noopener" aria-label="파키라랩 인스타그램">
+          <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0" stop-color="#FEDA75"/>
+                <stop offset="0.3" stop-color="#FA7E1E"/>
+                <stop offset="0.6" stop-color="#D62976"/>
+                <stop offset="0.82" stop-color="#962FBF"/>
+                <stop offset="1" stop-color="#4F5BD5"/>
+              </linearGradient>
+            </defs>
+            <rect width="22" height="22" rx="5" fill="url(#igGrad)"/>
+            <rect x="5.6" y="5.6" width="10.8" height="10.8" rx="3.3" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="11" cy="11" r="2.7" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="14.7" cy="7.4" r="0.95" fill="#fff"/>
+          </svg>
+          <span>인스타그램</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="fine">© 2026 파키라랩(PachiraLab). "Bringing Value, Driving Success."</p>
+    </div>
   </div>
 </footer>
 
