@@ -2,6 +2,7 @@
 layout: post
 title: "2025년 현장클리닉 우수사례 선정, 한국경영기술지도사회 회장상 수상"
 categories: [news]
+thumb: /assets/clinic-casebook.png
 summary: "파키라랩이 중소벤처기업부 비즈니스지원단의 2025년 현장클리닉 우수사례로 선정되어 한국경영기술지도사회 회장상을 수상했습니다."
 ---
 
