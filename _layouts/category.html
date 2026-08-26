@@ -23,15 +23,11 @@ layout: base
       </div>
       <p class="series-block-desc">{{ site.series_desc[s] }}</p>
       {%- if sp.size > 0 %}
-      <ol class="series-list">
+      <div class="card-grid">
         {%- for post in sp %}
-        <li>
-          <span class="ep">{{ post.episode }}화</span>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          {%- if post.summary %}<span class="series-sum">{{ post.summary }}</span>{% endif %}
-        </li>
+        {% include post-card.html post=post %}
         {%- endfor %}
-      </ol>
+      </div>
       {%- else %}
       <p class="series-soon">첫 편을 준비하고 있습니다.</p>
       {%- endif %}
@@ -42,19 +38,12 @@ layout: base
 
     {%- assign posts = site.categories[page.category] -%}
     {%- if posts and posts.size > 0 %}
-    <ul class="post-list">
+    <div class="card-grid">
       {%- for post in posts %}
       {%- if page.show_series and post.series %}{% continue %}{% endif %}
-      <li class="post-item">
-        <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <div class="post-meta">
-          <span class="tag">{{ site.category_names[page.category] }}</span>
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-        </div>
-        {%- if post.summary %}<p class="post-excerpt">{{ post.summary }}</p>{% endif %}
-      </li>
+      {% include post-card.html post=post %}
       {%- endfor %}
-    </ul>
+    </div>
     {%- else %}
     <div class="empty">
       <strong>준비 중입니다</strong>
