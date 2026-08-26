@@ -130,8 +130,14 @@
   .core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
   .core-card{
     background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:var(--radius);
-    padding:26px 22px;overflow:hidden;
+    padding:26px 22px;overflow:hidden;display:block;text-decoration:none;color:inherit;
+    transition:background .16s,border-color .16s,transform .16s;
   }
+  .core-card:hover{
+    background:rgba(255,255,255,0.11);border-color:rgba(255,255,255,0.36);transform:translateY(-3px);
+  }
+  .core-card .core-thumb{transition:transform .35s ease;}
+  .core-card:hover .core-thumb{transform:scale(1.05);}
   .core-thumb{
     width:calc(100% + 44px);margin:-26px -22px 18px;height:130px;object-fit:cover;display:block;
   }
@@ -375,30 +381,30 @@
         <p class="section-desc">대기업과의 협업, 사내벤처 운영, 액셀러레이터 프로그램, 투자 유치까지 — 파키라랩이 가장 집중하는 영역입니다.</p>
       </div>
       <div class="core-grid">
-        <div class="core-card">
+        <a class="core-card" href="/open-innovation/">
           <img class="core-thumb" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="오픈이노베이션 협업 미팅">
           <div class="core-num">1</div>
           <h3>오픈이노베이션</h3>
           <p>대기업 오픈이노베이션 프로그램 지원서 작성부터 협업 제안까지 준비합니다.</p>
-        </div>
-        <div class="core-card">
+        </a>
+        <a class="core-card" href="/corporate-venture/">
           <img class="core-thumb" src="https://images.unsplash.com/photo-1758691736836-0413b066787a?auto=format&fit=crop&w=800&q=80" alt="사내벤처 팀 워크숍">
           <div class="core-num">2</div>
           <h3>사내벤처 운영</h3>
           <p>사내벤처 제도를 총괄 운영한 경험을 바탕으로, 제도 설계부터 공모·선발·평가·분사까지 함께합니다.</p>
-        </div>
-        <div class="core-card">
+        </a>
+        <a class="core-card" href="/accelerator/">
           <img class="core-thumb" src="https://images.unsplash.com/photo-1560439514-0fc9d2cd5e1b?auto=format&fit=crop&w=800&q=80" alt="액셀러레이터 데모데이 발표 현장">
           <div class="core-num">3</div>
           <h3>액셀러레이터</h3>
           <p>액셀러레이터·TIPS 등 보육 프로그램 지원 시기와 조건에 맞춰 서류를 준비합니다.</p>
-        </div>
-        <div class="core-card">
+        </a>
+        <a class="core-card" href="/investment-ir/">
           <img class="core-thumb" src="https://images.unsplash.com/photo-1686771416282-3888ddaf249b?auto=format&fit=crop&w=800&q=80" alt="투자유치 협상 미팅">
           <div class="core-num">4</div>
           <h3>투자유치</h3>
           <p>CVC·투자자 발굴부터 IR 자료와 데모데이 발표 준비까지 지원합니다.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>

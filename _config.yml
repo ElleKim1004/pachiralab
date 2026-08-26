@@ -31,6 +31,7 @@ defaults:
 # 카테고리 한글 이름표 — 새 게시판을 추가할 땐 여기와 폴더를 같이 만들면 됩니다.
 category_names:
   open-innovation: "오픈이노베이션"
+  corporate-venture: "사내벤처"
   accelerator: "액셀러레이터"
   investment-ir: "투자유치·IR"
   certification-support: "인증·정부지원사업"
@@ -41,6 +42,7 @@ category_names:
 # 인사이트 허브에 묶이는 카테고리(공지·뉴스 제외)
 insight_categories:
   - open-innovation
+  - corporate-venture
   - accelerator
   - investment-ir
   - certification-support
