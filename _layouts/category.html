@@ -13,6 +13,8 @@ layout: base
 
 <main>
   <div class="wrap">
+    {{ content }}
+
     {%- if page.show_series -%}
     {%- for s in site.series_order -%}
     {%- assign sp = site.posts | where: "series", s | sort: "episode" -%}
