@@ -53,27 +53,32 @@ series_order:
   - column
   - basics
   - accel
+  - cvent
 
 series_names:
   column: "오픈이노베이션 시사 칼럼"
   basics: "오픈이노베이션 기초편"
   accel: "액셀러레이터·TIPS 실무"
+  cvent: "사내벤처 제도·운영 실무"
 
 series_desc:
   column: "지금 벌어지고 있는 오픈이노베이션 정책·사례를 한 편씩 짚어봅니다."
   basics: "오픈이노베이션이 무엇인지부터 차근차근 짚어보는 입문 연재입니다."
   accel: "액셀러레이터 고르기부터 팁스 신청과 그다음까지, 실제로 막히는 지점을 한 편씩 짚어봅니다."
+  cvent: "사내벤처 규정 설계부터 공모·겸직·분사·지분까지, 운영에서 실제로 막히는 지점을 한 편씩 짚어봅니다."
 
 series_total:
   column: 10
   basics: 30
   accel: 10
+  cvent: 10
 
 # 시리즈가 어느 게시판에 속하는지 — 새 시리즈를 만들 땐 여기도 한 줄 추가
 series_category:
   column: open-innovation
   basics: open-innovation
   accel: accelerator
+  cvent: corporate-venture
 
 exclude:
   - README.md
