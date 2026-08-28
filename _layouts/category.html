@@ -17,6 +17,7 @@ layout: base
 
     {%- if page.show_series -%}
     {%- for s in site.series_order -%}
+    {%- if site.series_category[s] != page.category %}{% continue %}{% endif -%}
     {%- assign sp = site.posts | where: "series", s | sort: "episode" -%}
     <section class="series-block">
       <div class="series-block-head">
