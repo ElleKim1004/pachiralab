@@ -69,6 +69,12 @@ series_total:
   basics: 30
   accel: 10
 
+# 시리즈가 어느 게시판에 속하는지 — 새 시리즈를 만들 땐 여기도 한 줄 추가
+series_category:
+  column: open-innovation
+  basics: open-innovation
+  accel: accelerator
+
 exclude:
   - README.md
   - POSTING-GUIDE.md
