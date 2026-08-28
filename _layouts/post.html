@@ -26,6 +26,28 @@ layout: base
 
       {% include series-nav.html position="bottom" %}
 
+      <div class="share-box">
+        <span class="share-label">이 글 공유하기</span>
+        <div class="share-btns">
+          <a class="sh sh-naver" href="https://blog.naver.com/openapi/share?url={{ page.url | absolute_url | uri_escape }}&title={{ page.title | uri_escape }}" target="_blank" rel="noopener" aria-label="네이버 블로그로 공유">
+            <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#03C75A"/><path d="M8.1 6.6h2.6l2.5 3.9V6.6h2.7v8.8h-2.6l-2.5-3.9v3.9H8.1z" fill="#fff"/></svg>
+            <span>블로그</span>
+          </a>
+          <a class="sh sh-fb" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener" aria-label="페이스북으로 공유">
+            <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#1877F2"/><path d="M14.2 11.6l.35-2.3h-2.2V7.8c0-.63.31-1.24 1.3-1.24h1V4.6s-.91-.16-1.78-.16c-1.81 0-3 1.1-3 3.09v1.75H7.85v2.3h2.02v5.57h2.49v-5.57z" fill="#fff"/></svg>
+            <span>페이스북</span>
+          </a>
+          <a class="sh sh-x" href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener" aria-label="X로 공유">
+            <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#141413"/><path d="M15.1 5.6h1.83l-4 4.57 4.7 6.22h-3.68l-2.88-3.77-3.3 3.77H5.94l4.28-4.9L5.71 5.6h3.77l2.6 3.44zm-.64 9.7h1.01L9.1 6.63H8.01z" fill="#fff"/></svg>
+            <span>X</span>
+          </a>
+          <button class="sh sh-copy" type="button" data-url="{{ page.url | absolute_url }}" aria-label="링크 복사">
+            <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#726F68"/><path d="M9.4 12.6a2.6 2.6 0 003.92.28l1.9-1.9a2.6 2.6 0 00-3.68-3.68l-.87.87" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M12.6 9.4a2.6 2.6 0 00-3.92-.28l-1.9 1.9a2.6 2.6 0 003.68 3.68l.87-.87" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>링크 복사</span>
+          </button>
+        </div>
+      </div>
+
       <div class="article-foot">
         <a class="back-link" href="{{ '/' | append: cat | append: '/' | relative_url }}">← {{ site.category_names[cat] | default: '목록' }} 목록으로</a>
         <a class="cta-inline" href="{{ '/#contact' | relative_url }}">무료 상담 신청하기</a>
@@ -33,3 +55,27 @@ layout: base
     </article>
   </div>
 </main>
+
+<script>
+(function(){
+  var b=document.querySelector('.sh-copy');
+  if(!b) return;
+  b.addEventListener('click',function(){
+    var url=b.getAttribute('data-url');
+    var done=function(){
+      var s=b.querySelector('span'), t=s.textContent;
+      s.textContent='복사됐습니다'; b.classList.add('is-done');
+      setTimeout(function(){ s.textContent=t; b.classList.remove('is-done'); },1600);
+    };
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(url).then(done).catch(function(){});
+    }else{
+      var ta=document.createElement('textarea');
+      ta.value=url; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
