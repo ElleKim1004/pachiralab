@@ -421,3 +421,28 @@ footer .fine{margin:0;font-size:12.5px;color:var(--mid);}
   .board-lead{padding:26px 22px 24px;}
   .board-lead h2{font-size:21px;}
 }
+
+/* ── 글 공유 버튼 ─────────────────────────────────── */
+.share-box{
+  margin:38px 0 0;padding:20px 0 0;border-top:1px solid var(--border,#E1DFD5);
+  display:flex;align-items:center;flex-wrap:wrap;gap:14px;
+}
+.share-label{font-size:13.5px;font-weight:700;color:var(--mid,#726F68);}
+.share-btns{display:flex;flex-wrap:wrap;gap:9px;}
+.article .sh{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 14px 8px 9px;border-radius:999px;
+  background:var(--white,#fff);border:1px solid var(--border,#E1DFD5);
+  font-size:13px;font-weight:600;color:var(--dark,#141413);
+  text-decoration:none;cursor:pointer;font-family:inherit;
+  transition:border-color .15s,transform .15s,background .15s;
+}
+.article .sh:hover{border-color:var(--green,#0E6B32);transform:translateY(-1px);}
+.article .sh svg{width:20px;height:20px;border-radius:6px;flex-shrink:0;display:block;margin:0;}
+.article .sh-copy.is-done{background:var(--green-pale,#E7F1E9);border-color:var(--green,#0E6B32);color:var(--green-dark,#043E14);}
+
+@media (max-width:520px){
+  .share-box{flex-direction:column;align-items:flex-start;gap:10px;}
+  .article .sh span{display:none;}
+  .article .sh{padding:9px;}
+}
