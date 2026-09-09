@@ -446,3 +446,25 @@ footer .fine{margin:0;font-size:12.5px;color:var(--mid);}
   .article .sh span{display:none;}
   .article .sh{padding:9px;}
 }
+
+/* ── 제목 아래 공유 버튼 (page-head 안, 아이콘 전용) ── */
+.page-head .share-box.share-top{
+  margin:20px 0 0;padding:0;border-top:0;
+  display:flex;align-items:center;gap:10px;
+}
+.share-top .share-btns{gap:8px;}
+.share-top .sh{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;padding:0;border-radius:10px;
+  background:rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.22);
+  cursor:pointer;text-decoration:none;
+  transition:background .15s,border-color .15s,transform .15s;
+}
+.share-top .sh:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.45);transform:translateY(-1px);}
+.share-top .sh svg{width:18px;height:18px;border-radius:5px;display:block;margin:0;}
+.share-top .sh-copy.is-done{background:rgba(255,255,255,0.32);border-color:#fff;}
+.share-toast{
+  font-size:12.5px;font-weight:700;color:#fff;
+  background:rgba(255,255,255,0.18);border-radius:999px;padding:5px 11px;
+}
