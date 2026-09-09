@@ -1,0 +1,26 @@
+{%- assign v = include.variant | default: 'bottom' -%}
+{%- assign purl = page.url | absolute_url -%}
+{%- assign eurl = purl | uri_escape -%}
+{%- assign etitle = page.title | uri_escape -%}
+<div class="share-box share-{{ v }}">
+  {%- if v == 'bottom' %}<span class="share-label">이 글 공유하기</span>{% endif %}
+  <div class="share-btns">
+    <a class="sh sh-naver" href="https://blog.naver.com/openapi/share?url={{ eurl }}&title={{ etitle }}" target="_blank" rel="noopener" aria-label="네이버 블로그로 공유" title="네이버 블로그로 공유">
+      <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#03C75A"/><path d="M8.1 6.6h2.6l2.5 3.9V6.6h2.7v8.8h-2.6l-2.5-3.9v3.9H8.1z" fill="#fff"/></svg>
+      {%- if v == 'bottom' %}<span>블로그</span>{% endif %}
+    </a>
+    <a class="sh sh-fb" href="https://www.facebook.com/sharer/sharer.php?u={{ eurl }}" target="_blank" rel="noopener" aria-label="페이스북으로 공유" title="페이스북으로 공유">
+      <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#1877F2"/><path d="M14.2 11.6l.35-2.3h-2.2V7.8c0-.63.31-1.24 1.3-1.24h1V4.6s-.91-.16-1.78-.16c-1.81 0-3 1.1-3 3.09v1.75H7.85v2.3h2.02v5.57h2.49v-5.57z" fill="#fff"/></svg>
+      {%- if v == 'bottom' %}<span>페이스북</span>{% endif %}
+    </a>
+    <a class="sh sh-x" href="https://twitter.com/intent/tweet?text={{ etitle }}&url={{ eurl }}" target="_blank" rel="noopener" aria-label="X로 공유" title="X로 공유">
+      <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#141413"/><path d="M15.1 5.6h1.83l-4 4.57 4.7 6.22h-3.68l-2.88-3.77-3.3 3.77H5.94l4.28-4.9L5.71 5.6h3.77l2.6 3.44zm-.64 9.7h1.01L9.1 6.63H8.01z" fill="#fff"/></svg>
+      {%- if v == 'bottom' %}<span>X</span>{% endif %}
+    </a>
+    <button class="sh sh-copy" type="button" data-url="{{ purl }}" aria-label="링크 복사" title="링크 복사">
+      <svg viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="5" fill="#726F68"/><path d="M9.4 12.6a2.6 2.6 0 003.92.28l1.9-1.9a2.6 2.6 0 00-3.68-3.68l-.87.87" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M12.6 9.4a2.6 2.6 0 00-3.92-.28l-1.9 1.9a2.6 2.6 0 003.68 3.68l.87-.87" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      {%- if v == 'bottom' %}<span>링크 복사</span>{% endif %}
+    </button>
+  </div>
+  {%- if v == 'top' %}<span class="share-toast" hidden>복사됐습니다</span>{% endif %}
+</div>
