@@ -126,31 +126,23 @@
 <body class="locked">
 
 <style id="gate-style">
-  body.locked > *:not(#gate){display:none !important;}
-  #gate{position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:var(--bg); padding:24px;}
-  #gate .box{width:100%; max-width:380px; text-align:center;}
-  #gate .ey{font-size:12px; letter-spacing:.14em; color:var(--accent); font-weight:700; margin:0 0 12px}
-  #gate h1{font-size:22px; line-height:1.45; margin:0 0 10px; color:var(--ink); letter-spacing:-.01em}
-  #gate p.d{font-size:14px; line-height:1.7; color:var(--ink-2); margin:0 0 22px}
-  #gate form{display:flex; gap:8px}
-  #gate input{flex:1; min-width:0; padding:12px 14px; font-size:16px; text-align:center; letter-spacing:.3em; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink)}
-  #gate input:focus{outline:none; border-color:var(--accent)}
-  #gate button{padding:12px 20px; font-size:14px; font-weight:700; border:0; border-radius:10px; background:var(--accent); color:#fff; cursor:pointer; white-space:nowrap}
-  #gate .err{margin:14px 0 0; font-size:13px; color:#c0392b; min-height:18px}
+  body.locked #s2, body.locked #s3, body.locked #s4, body.locked #s5,
+  body.locked #s6, body.locked #s7, body.locked #s8, body.locked #s9{display:none !important}
+  body:not(.locked) #lockgate{display:none !important}
+  body.locked .toc ol li + li a{opacity:.42; pointer-events:none}
+  #lockgate{margin:34px 0 10px; padding:30px 24px; text-align:center;
+    border:1px solid var(--line); border-radius:16px; background:var(--surface)}
+  #lockgate .lg-ey{margin:0 0 10px; font-size:12px; letter-spacing:.14em; font-weight:700; color:var(--accent)}
+  #lockgate h3{margin:0 0 10px; font-size:18px; line-height:1.5; color:var(--ink); letter-spacing:-.01em}
+  #lockgate .lg-d{margin:0 0 20px; font-size:14px; line-height:1.75; color:var(--ink-2)}
+  #lockgate form{display:flex; gap:8px; max-width:320px; margin:0 auto}
+  #lockgate input{flex:1; min-width:0; padding:11px 14px; font-size:16px; text-align:center; letter-spacing:.3em;
+    border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--ink)}
+  #lockgate input:focus{outline:none; border-color:var(--accent)}
+  #lockgate button{padding:11px 18px; font-size:14px; font-weight:700; border:0; border-radius:10px;
+    background:var(--accent); color:#fff; cursor:pointer; white-space:nowrap}
+  #lockgate .lg-err{margin:14px 0 0; font-size:13px; color:#c0392b; min-height:18px}
 </style>
-
-<div id="gate">
-  <div class="box">
-    <p class="ey">경영지도사 35기 동기회 교육실</p>
-    <h1>내부 학습자료</h1>
-    <p class="d">열람용 비밀번호를 입력해 주세요.<br>교육일 4자리(월일)입니다.</p>
-    <form id="gateForm" autocomplete="off">
-      <input id="gatePw" type="password" inputmode="numeric" maxlength="8" placeholder="••••" aria-label="비밀번호">
-      <button type="submit">열람</button>
-    </form>
-    <p class="err" id="gateErr"></p>
-  </div>
-</div>
 
 <header class="top">
   <div class="wrap">
@@ -197,6 +189,17 @@
       <p>AI 산출물의 논리적 오류는 주니어가 못 찾는다. 경력과 판단이 쌓인 사람은 툴만 조금 익히면 바로 찾아낸다. 실제로 전 수행사 보고서를 받아보면 겉은 그럴듯한데 논리 오류가 많아 처음부터 다시 만드는 경우가 잦다고 했다.</p>
     </div>
   </section>
+
+  <div id="lockgate">
+    <p class="lg-ey">참석자 전용</p>
+    <h3>이후 내용은 비밀번호를 입력하면 이어서 보실 수 있습니다</h3>
+    <p class="lg-d">경영지도사 35기 동기회 3분기 정기교육 참석자용 정리본입니다.<br>비밀번호는 <b>교육일 4자리(월일)</b>입니다.</p>
+    <form id="gateForm" autocomplete="off">
+      <input id="gatePw" type="password" inputmode="numeric" maxlength="8" placeholder="••••" aria-label="비밀번호">
+      <button type="submit">전체 보기</button>
+    </form>
+    <p class="lg-err" id="gateErr"></p>
+  </div>
 
   <section id="s2">
     <h2><span class="num">02</span>왜 프레임워크인가</h2>
@@ -448,11 +451,7 @@
         <li>프레임 장표에는 <strong>Sample 워터마크</strong>가 찍혀 있다. 강사 회사의 영업·제안용 자료라는 뜻이다.</li>
         <li>교재에는 <strong>강사 개인 연락처</strong>가 포함되어 있다.</li>
       </ul>
-      <p style="margin-top:10px">원본은 별도로 보관하고, 재배포나 외부 공개 전에는 강사에게 범위를 확인할 것. 구조를 배워 <strong>우리 버전으로 다시 그리는 것</strong>이 저작권 문제까지 함께 해결하는 길이다.</p>
-    </div>
-    <div class="callout warn">
-      <p class="ct">이 페이지의 접근 범위</p>
-      <p><code>/admin/</code> 경로는 폴더 이름일 뿐 <strong>접근 제한이 걸려 있지 않다.</strong> URL을 아는 사람은 누구나 열람할 수 있다(검색엔진 색인만 차단해 두었다). 외부에 공개되면 곤란한 내용은 이 페이지에 적지 말 것.</p>
+      <p style="margin-top:10px">원본은 별도로 보관하고, 재배포나 외부 공개 전에는 강사에게 범위를 확인할 것. 구조를 배워 <strong>자신의 버전으로 다시 그리는 것</strong>이 저작권 문제까지 함께 해결하는 길이다.</p>
     </div>
     <p style="font-size:14px;color:var(--ink-3)">강의 내용과 사례·표현의 저작권은 김세호 대표에게 있다. 이 문서는 파키라랩 내부 학습·실무 적용을 목적으로 작성한 요약본이다.</p>
   </section>
@@ -470,7 +469,7 @@
 <script>
 (function(){
   var KEY='cs-gate', PW='1006';
-  function unlock(){ document.body.classList.remove('locked'); var g=document.getElementById('gate'); if(g) g.remove(); }
+  function unlock(){ document.body.classList.remove('locked'); }
   try{ if(sessionStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
   var f=document.getElementById('gateForm'), i=document.getElementById('gatePw'), er=document.getElementById('gateErr');
   if(!f) return;
@@ -479,7 +478,6 @@
     if(i.value.trim()===PW){ try{ sessionStorage.setItem(KEY,'1'); }catch(e){} er.textContent=''; unlock(); }
     else { er.textContent='비밀번호가 올바르지 않습니다.'; i.value=''; i.focus(); }
   });
-  i.focus();
 })();
 </script>
 
